@@ -1,0 +1,36 @@
+.shapeCanvas{
+   height:300px;
+   border:solid;
+   border-color:lightgrey;
+    width: 100vw;
+    overflow: none;  
+    margin: 0px;
+    touch-action: none;
+}
+
+.shape{
+  fill-opacity:1;
+  stroke:black;
+  fill:black;
+  stroke-width:1;
+}
+
+.logging{
+   height:300px;
+   border:solid;
+   border-color:lightgrey;
+    width: 100vw;
+    overflow: none;  
+    margin: 0px;
+    touch-action: none;
+}
+
+.example-button-row {
+  display: table-cell;
+}
+
+.example-button-row button {
+  display: table-cell;
+  margin: 6px;
+}
+

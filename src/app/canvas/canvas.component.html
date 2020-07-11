@@ -1,0 +1,48 @@
+<!--<div>Create: 
+    <app-shape-type (onTypeChange)="setType($event)"></app-shape-type>
+</div> -->
+<section>
+  <div class="example-button-row">
+    <button mat-raised-button (click)="addBus()">Bus</button>
+    <button mat-raised-button color="primary" (click)="addBranch()">Branch</button>
+    <button mat-raised-button color="accent">Gen</button>
+    <button mat-raised-button color="warn">Load</button>
+  </div>
+</section>
+
+<svg class="shapeCanvas" 
+  (mousedown)="startDrawing($event)" 
+  (mouseup)="stopDrawing($event)"
+  (mousemove)="keepDrawing($event)"
+  (touchstart)="startDrawingTouch($event)" 
+  (touchmove)="keepDrawingTouch($event)"
+  (touchend)="stopDrawing($event)"
+>
+<ng-container *ngFor="let shape of shapesToDraw">
+  <rect class="shape" *ngIf="shape.type=='rectangle'" 
+    [style.stroke-width]="shape==(currentShape|async)?2:1"
+    [attr.x]="shape.x" 
+    [attr.y]="shape.y" 
+    [attr.width]="shape.w"
+    [attr.height]="shape.h"
+    [attr.rx]="8"   
+  >
+   </rect> 
+
+  <line class="shape" *ngIf="shape.type=='line'" 
+   [style.stroke-width]="shape==(currentShape|async)?2:1" 
+   [attr.x1]="shape.x" 
+   [attr.y1]="shape.y" 
+   [attr.x2]="shape.x*1+shape.w*1"       
+   [attr.y2]="shape.y*1+shape.h*1"></line>
+
+  <ellipse class="shape" *ngIf="shape.type=='ellipse'" 
+   [style.stroke-width]="shape==(currentShape|async)?2:1" 
+   [attr.cx]="shape.x*1+shape.w/2" 
+   [attr.cy]="shape.y*1+shape.h/2" 
+   [attr.rx]="shape.w/2"       
+   [attr.ry]="shape.h/2"></ellipse>
+</ng-container>
+</svg>
+<textarea class="logging">{{localLogging}}</textarea>
+
