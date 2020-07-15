@@ -51,13 +51,19 @@ export class CanvasComponent implements OnInit {
     console.log (this.startX + " " + newX + " " + deltaX);
     let atRHS = (newX > this.selectedShape.x + this.selectedShape.w / 2);
     //if (deltaX > 0) {
+
+      /*
       if (atRHS) {
         this.selectedShape.w += deltaX;
       }
       else {
         this.selectedShape.x += deltaX;
         this.selectedShape.w -= deltaX;
-      }
+      }*/
+
+      //Move shape
+      this.selectedShape.x += deltaX;
+
       /*
     }
     else { //delta x -ve
